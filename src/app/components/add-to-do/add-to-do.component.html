@@ -1,0 +1,15 @@
+<form
+  class="mx-auto w-[500px] flex justify-between items-start"
+  (ngSubmit)="handleSubmit($event)"
+>
+  <mat-form-field class="w-[400px]">
+    <mat-label>Favorite food</mat-label>
+    <input
+      matInput
+      placeholder="Ex. Pizza"
+    />
+  </mat-form-field>
+  <button type="submit" class="btn" mat-raised-button color="primary">
+    Seacrh
+  </button>
+</form>
