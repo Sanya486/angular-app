@@ -1,14 +1,19 @@
 <form
   class="mx-auto w-[500px] flex justify-between items-start"
-  (ngSubmit)="handleSubmit($event)"
+  [formGroup]="addToDoForm"
+  (submit)="submitApplication()"
 >
   <mat-form-field class="w-[400px]">
-    <mat-label>Favorite food</mat-label>
-    <input
-      matInput
-      placeholder="Ex. Pizza"
-    />
+    <mat-label>Activity Name</mat-label>
+    <input matInput placeholder="Ex. Running" formControlName="addToDo" />
+    <div *ngIf="addToDo?.invalid && (addToDo?.dirty || addToDo?.touched)">
+      <div class="text-sm text-red-700" *ngIf="addToDo?.errors?.['required']">Activity name is required.</div>
+      <div class="text-sm text-red-700" *ngIf="addToDo?.errors?.['minlength']">
+       Activity name must be at least 2 characters long.
+      </div>
+    </div>
   </mat-form-field>
+  
   <button type="submit" class="btn" mat-raised-button color="primary">
     Seacrh
   </button>

@@ -8,8 +8,6 @@ import { ToDoListComponent } from './components/to-do-list/to-do-list.component'
 import { MatDividerModule } from '@angular/material/divider';
 import { AddToDoComponent } from './components/add-to-do/add-to-do.component';
 
-const toDoList = ["Running", "Cooking", "Jumping"]
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -26,7 +24,4 @@ const toDoList = ["Running", "Cooking", "Jumping"]
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'angular-app';
-  list = toDoList;
-}
+export class AppComponent {}
