@@ -1,6 +1,6 @@
-<p>
-  <mat-toolbar color="primary">
-    <span color="accent">To-do list with Angular</span>
+<mat-toolbar class="flex justify-between" color="primary">
+  <div class="flex items-center">
+    <span class="self-center" color="accent">To-do list with Angular</span>
     <span class="example-spacer"></span>
     <button
       mat-icon-button
@@ -9,5 +9,9 @@
     >
       <mat-icon color="accent">emoji_people</mat-icon>
     </button>
-  </mat-toolbar>
-</p>
+  </div>
+  <div class="flex gap-2">
+    <a routerLink="">Home</a>
+    <a routerLink="fetchhing-data">Fetching-Data</a>
+  </div>
+</mat-toolbar>

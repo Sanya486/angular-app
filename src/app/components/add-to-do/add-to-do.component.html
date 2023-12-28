@@ -1,11 +1,11 @@
 <form
-  class="mx-auto w-[500px] flex justify-between items-start"
+  class="mx-auto max-w-[500px] flex gap-2 items-start"
   [formGroup]="addToDoForm"
   (submit)="submitApplication()"
 >
-  <mat-form-field class="w-[400px]">
+  <mat-form-field class="flex-shrink-0 flex-grow">
     <mat-label>Activity Name</mat-label>
-    <input matInput placeholder="Ex. Running" formControlName="addToDo" />
+    <input class="w-full" matInput placeholder="Ex. Running" formControlName="addToDo" />
     <div *ngIf="addToDo?.invalid && (addToDo?.dirty || addToDo?.touched)">
       <div class="text-sm text-red-700" *ngIf="addToDo?.errors?.['required']">Activity name is required.</div>
       <div class="text-sm text-red-700" *ngIf="addToDo?.errors?.['minlength']">
