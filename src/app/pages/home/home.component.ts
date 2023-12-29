@@ -6,6 +6,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { AddToDoComponent } from 'app/components/add-to-do/add-to-do.component';
 import { TodoServiceService } from 'app/services/todo-service.service';
 import { DoneToDoListComponent } from 'app/components/done-to-do-list/done-to-do-list.component';
+import { StatisticComponent } from 'app/components/statistic/statistic.component';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,7 @@ import { DoneToDoListComponent } from 'app/components/done-to-do-list/done-to-do
     MatDividerModule,
     AddToDoComponent,
     DoneToDoListComponent,
+    StatisticComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

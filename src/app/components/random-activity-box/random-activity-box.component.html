@@ -1,0 +1,23 @@
+<mat-card *ngIf="activity" class="max-w-[500px] mx-auto relative">
+  <img
+    class="absolute top-2 right-2"
+    width="50"
+    src="https://cdn-icons-png.flaticon.com/512/3430/3430793.png"
+  />
+  <mat-card-header>
+    <mat-card-title>How about:</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="italic">{{ activity.activity }}?</mat-card-content>
+  <mat-card-footer>
+    <mat-card-actions>
+      <button
+        (click)="handleAddBtn(activity.activity)"
+        mat-raised-button
+        color="primary"
+        type="button"
+      >
+        Add to my To-do list
+      </button>
+    </mat-card-actions>
+  </mat-card-footer>
+</mat-card>

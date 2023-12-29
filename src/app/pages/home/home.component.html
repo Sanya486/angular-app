@@ -1,9 +1,13 @@
 <app-add-to-do (newAction)="addAction($event)"></app-add-to-do>
+<app-statistic></app-statistic>
 <app-done-to-do-list
   class="flex flex-col gap-2 py-6"
   [list]="favoriteTodos"
 ></app-done-to-do-list>
-<mat-divider></mat-divider>
+<mat-divider
+  style="margin-left: auto; margin-right: auto"
+  class="w-[600px]"
+></mat-divider>
 <div class="container mx-auto py-6">
   <app-to-do-list class="flex flex-col gap-2" [list]="todos"></app-to-do-list>
 </div>

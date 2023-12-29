@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FetchingDataComponent } from './fetching-data.component';
+import { RandomActivityComponent } from './random-activity.component';
 
-describe('FetchingDataComponent', () => {
-  let component: FetchingDataComponent;
-  let fixture: ComponentFixture<FetchingDataComponent>;
+describe('RandomActivityComponent', () => {
+  let component: RandomActivityComponent;
+  let fixture: ComponentFixture<RandomActivityComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FetchingDataComponent]
+      imports: [RandomActivityComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(FetchingDataComponent);
+    fixture = TestBed.createComponent(RandomActivityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
