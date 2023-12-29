@@ -4,9 +4,10 @@
   <span class="text-2xl font-semibold">{{ name }}</span>
   <div class="flex gap-2">
     <button
+      (click)="handleDoneBtn(name, index)"
       mat-mini-fab
       color="primary"
-      aria-label="Example icon button with a menu icon"
+      aria-label="Mark button"
     >
       <mat-icon>done</mat-icon>
     </button>
@@ -14,6 +15,7 @@
       mat-mini-fab
       color="primary"
       aria-label="Example icon button with a menu icon"
+      (click)="handleDeleteBtn(index)"
     >
       <mat-icon>close</mat-icon>
     </button>
