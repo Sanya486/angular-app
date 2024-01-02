@@ -4,6 +4,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { RandomActivity } from 'app/interfaces/random-activity';
 import { CommonModule } from '@angular/common';
 import { TodoServiceService } from 'app/services/todo-service.service';
+import { Store } from '@ngrx/store';
+import { addNewTodo } from 'app/store/todos.actions';
 
 @Component({
   selector: 'app-random-activity-box',
@@ -13,10 +15,10 @@ import { TodoServiceService } from 'app/services/todo-service.service';
   styleUrl: './random-activity-box.component.scss',
 })
 export class RandomActivityBoxComponent {
-  constructor(private todoService: TodoServiceService) {}
+  constructor(private store: Store) {}
   @Input() activity!: RandomActivity;
 
   handleAddBtn(activity: string) {
-    this.todoService.addTodo(activity);
+    this.store.dispatch(addNewTodo({ todo: activity }));
   }
 }

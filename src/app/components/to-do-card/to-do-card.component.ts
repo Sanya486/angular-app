@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { TodoServiceService } from 'app/services/todo-service.service';
+import { Store } from '@ngrx/store';
+import { deleteTodo, moveTodoToDone } from 'app/store/todos.actions';
 
 @Component({
   selector: 'app-to-do-card',
@@ -11,16 +13,15 @@ import { TodoServiceService } from 'app/services/todo-service.service';
   styleUrl: './to-do-card.component.scss',
 })
 export class ToDoCardComponent {
-  constructor(private todoService: TodoServiceService) {}
+  constructor(private store: Store) {}
   @Input() name = '';
   @Input() index: number;
 
   handleDeleteBtn(index: number) {
-    this.todoService.deleteTodo(index);
+    this.store.dispatch(deleteTodo({ index }));
   }
 
   handleDoneBtn(name: string, index: number) {
-    this.todoService.addToFavorite(name);
-    this.todoService.deleteTodo(index);
+    this.store.dispatch(moveTodoToDone({ todo: name }));
   }
 }

@@ -24,14 +24,4 @@ import { StatisticComponent } from 'app/components/statistic/statistic.component
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  public todos: string[];
-  public favoriteTodos: string[];
-  constructor(private todoService: TodoServiceService) {
-    this.todos = this.todoService.getTodos();
-    this.favoriteTodos = this.todoService.getFavoriteTodos();
-  }
-
-  addAction(value: string) {
-    this.todos.push(value);
-  }
 }
