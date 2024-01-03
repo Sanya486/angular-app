@@ -1,10 +1,10 @@
 <div
   class="border-2 rounded border-current max-w-[500px] mx-auto p-3 flex justify-between items-center"
 >
-  <span class="text-2xl font-semibold mr-2">{{ name }}</span>
+  <span class="text-2xl font-semibold mr-2">{{ todo.title }}</span>
   <div class="flex gap-2">
     <button
-      (click)="handleDoneBtn(name, index)"
+      (click)="handleDoneBtn(todo.title, todo.id)"
       mat-mini-fab
       color="primary"
       aria-label="Mark button"
@@ -15,7 +15,7 @@
       mat-mini-fab
       color="primary"
       aria-label="Example icon button with a menu icon"
-      (click)="handleDeleteBtn(index)"
+      (click)="handleDeleteBtn(todo.id)"
     >
       <mat-icon>close</mat-icon>
     </button>

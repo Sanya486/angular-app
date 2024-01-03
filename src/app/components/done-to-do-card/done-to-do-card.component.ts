@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { ITodo } from 'app/interfaces/todo';
 
 @Component({
   selector: 'app-done-to-do-card',
@@ -10,5 +11,5 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './done-to-do-card.component.scss',
 })
 export class DoneToDoCardComponent {
-  @Input() name = '';
+  @Input() todo: ITodo;
 }

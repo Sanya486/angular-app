@@ -1,4 +1,6 @@
+import { ITodo } from "./todo";
+
 export interface InitialStore {
-    done_todos: string[],
-    undone_todos: string[]
+  done_todos: ITodo[];
+  undone_todos: ITodo[];
 }

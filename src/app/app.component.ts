@@ -10,7 +10,11 @@ import { AddToDoComponent } from './components/add-to-do/add-to-do.component';
 import { LocalStorageService } from './services/local-storage.service';
 import { Store } from '@ngrx/store';
 import { InitialStore } from './interfaces/initialStore';
-import { addTodosFromLS } from './store/todos.actions';
+import {
+  addTodosFromLS,
+  getAllDoneTodos,
+  getAllUndoneTodos,
+} from './store/todos.actions';
 
 @Component({
   selector: 'app-root',
@@ -40,5 +44,7 @@ export class AppComponent implements OnInit {
     this.store.dispatch(
       addTodosFromLS({ UndoneTodos: todosLS, DoneTodos: donetodosLS })
     );
+    this.store.dispatch(getAllUndoneTodos());
+    this.store.dispatch(getAllDoneTodos());
   }
 }

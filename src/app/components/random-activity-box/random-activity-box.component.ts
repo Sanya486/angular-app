@@ -5,7 +5,7 @@ import { RandomActivity } from 'app/interfaces/random-activity';
 import { CommonModule } from '@angular/common';
 import { TodoServiceService } from 'app/services/todo-service.service';
 import { Store } from '@ngrx/store';
-import { addNewTodo } from 'app/store/todos.actions';
+import { addUndoneTodo } from 'app/store/todos.actions';
 
 @Component({
   selector: 'app-random-activity-box',
@@ -19,6 +19,6 @@ export class RandomActivityBoxComponent {
   @Input() activity!: RandomActivity;
 
   handleAddBtn(activity: string) {
-    this.store.dispatch(addNewTodo({ todo: activity }));
+    this.store.dispatch(addUndoneTodo({ todo: activity }));
   }
 }

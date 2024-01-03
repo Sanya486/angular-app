@@ -5,6 +5,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable, tap } from 'rxjs';
 import { InitialStore } from 'app/interfaces/initialStore';
 import { selectUndoneTodos } from 'app/store/todos.selectors';
+import { ITodo } from 'app/interfaces/todo';
 
 @Component({
   selector: 'app-to-do-list',
@@ -14,7 +15,7 @@ import { selectUndoneTodos } from 'app/store/todos.selectors';
   styleUrl: './to-do-list.component.scss',
 })
 export class ToDoListComponent {
-  list: string[];
+  list: ITodo[];
   constructor(private store: Store<{ todos: InitialStore }>) {
     this.store
       .select(selectUndoneTodos)

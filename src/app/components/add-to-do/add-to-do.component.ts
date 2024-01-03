@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { addNewTodo } from 'app/store/todos.actions';
+import { addUndoneTodo } from 'app/store/todos.actions';
 
 @Component({
   selector: 'app-add-to-do',
@@ -33,7 +33,8 @@ export class AddToDoComponent {
   }
   submitApplication() {
     this.store.dispatch(
-      addNewTodo({ todo: this.addToDoForm.value.addToDo as string })
+      addUndoneTodo({ todo: this.addToDoForm.value.addToDo as string })
     );
+    this.addToDoForm.reset();
   }
 }
