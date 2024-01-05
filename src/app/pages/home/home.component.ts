@@ -4,9 +4,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ToDoListComponent } from 'app/components/to-do-list/to-do-list.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { AddToDoComponent } from 'app/components/add-to-do/add-to-do.component';
-import { TodoServiceService } from 'app/services/todo-service.service';
 import { DoneToDoListComponent } from 'app/components/done-to-do-list/done-to-do-list.component';
-import { StatisticComponent } from 'app/components/statistic/statistic.component';
+import { DeleteBtnBoxComponent } from 'app/components/delete-btn-box/delete-btn-box.component';
 
 @Component({
   selector: 'app-home',
@@ -18,10 +17,10 @@ import { StatisticComponent } from 'app/components/statistic/statistic.component
     MatDividerModule,
     AddToDoComponent,
     DoneToDoListComponent,
-    StatisticComponent,
+
+    DeleteBtnBoxComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
-}
+export class HomeComponent {}

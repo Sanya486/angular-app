@@ -1,19 +1,22 @@
 import { createReducer, on } from '@ngrx/store';
 
 import {
-  addUndoneTodo,
   addUndoneTodo_success,
-  addTodosFromLS,
-  deleteTodo,
   deleteTodo_success,
   getAllDoneTodos_success,
   getAllUndoneTodos_success,
-  moveTodoToDone,
   addDoneTodo_success,
+  deleteAllUndone_success,
+  deleteAllDone_success,
 } from './todos.actions';
 
-import { initialState } from './utils/reducer-handlers';
 import { ITodo } from 'app/interfaces/todo';
+import { InitialStore } from 'app/interfaces/initialStore';
+
+const initialState: InitialStore = {
+  done_todos: [],
+  undone_todos: [],
+};
 
 export const todosReducer = createReducer(
   initialState,
@@ -46,7 +49,19 @@ export const todosReducer = createReducer(
   on(addDoneTodo_success, (state, { payload }) => {
     return {
       ...state,
-      done_todos: [...state.done_todos, payload]
-    }
+      done_todos: [...state.done_todos, payload],
+    };
+  }),
+  on(deleteAllUndone_success, (state) => {
+    return {
+      ...state,
+      undone_todos: [],
+    };
+  }),
+  on(deleteAllDone_success, (state) => {
+    return {
+      ...state,
+      done_todos: [],
+    };
   })
 );

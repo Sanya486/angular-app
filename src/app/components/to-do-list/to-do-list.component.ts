@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToDoCardComponent } from '../to-do-card/to-do-card.component';
-import { Store, select } from '@ngrx/store';
-import { Observable, tap } from 'rxjs';
+import { Store } from '@ngrx/store';
 import { InitialStore } from 'app/interfaces/initialStore';
 import { selectUndoneTodos } from 'app/store/todos.selectors';
 import { ITodo } from 'app/interfaces/todo';

@@ -1,16 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
-import {
-  map,
-  exhaustMap,
-  catchError,
-  mergeMap,
-  concatMap,
-} from 'rxjs/operators';
+import { map, exhaustMap, catchError } from 'rxjs/operators';
 import { ApiService } from 'app/services/api.service';
 import { StoreActions } from 'app/store/todos.actions';
-import { ITodo } from 'app/interfaces/todo';
 
 @Injectable()
 export class ApiEffects {
@@ -60,7 +53,7 @@ export class ApiEffects {
 
   deleteFromUndone$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(StoreActions.DELETE_TODO),
+      ofType(StoreActions.DELETE_UNDONE_TODO),
       exhaustMap(({ id }) =>
         this.apiService.deleteUndoneTodo(id).pipe(
           map((todo) => ({
@@ -82,6 +75,32 @@ export class ApiEffects {
             payload: todo,
           }))
         )
+      )
+    )
+  );
+
+  deleteAllUndoneTodos = createEffect(() =>
+    this.actions$.pipe(
+      ofType(StoreActions.DELETE_ALL_UNDONE_TODO),
+      exhaustMap(() =>
+        this.apiService
+          .deleteAllUndoneTodos()
+          .pipe(
+            map(() => ({ type: StoreActions.SUCCESS_DELETE_ALL_UNDONE_TODOS }))
+          )
+      )
+    )
+  );
+
+  deleteAllDoneTodos = createEffect(() =>
+    this.actions$.pipe(
+      ofType(StoreActions.DELETE_ALL_DONE_TODO),
+      exhaustMap(() =>
+        this.apiService
+          .deleteAllDoneTodos()
+          .pipe(
+            map(() => ({ type: StoreActions.SUCCESS_DELETE_ALL_DONE_TODOS }))
+          )
       )
     )
   );

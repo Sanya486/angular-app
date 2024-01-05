@@ -4,7 +4,7 @@
   <span class="text-2xl font-semibold mr-2">{{ todo.title }}</span>
   <div class="flex gap-2">
     <button
-      (click)="handleDoneBtn(todo.title, todo.id)"
+      (click)="handleDoneBtn(todo.title, todo._id)"
       mat-mini-fab
       color="primary"
       aria-label="Mark button"
@@ -15,7 +15,7 @@
       mat-mini-fab
       color="primary"
       aria-label="Example icon button with a menu icon"
-      (click)="handleDeleteBtn(todo.id)"
+      (click)="handleDeleteBtn(todo._id)"
     >
       <mat-icon>close</mat-icon>
     </button>
