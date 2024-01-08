@@ -31,6 +31,7 @@ export class AddToDoComponent {
   get addToDo() {
     return this.addToDoForm.get('addToDo');
   }
+  
   submitApplication() {
     this.store.dispatch(
       addUndoneTodo({ todo: this.addToDoForm.value.addToDo as string })

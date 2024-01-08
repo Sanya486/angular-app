@@ -7,11 +7,9 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ToDoListComponent } from './components/to-do-list/to-do-list.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { AddToDoComponent } from './components/add-to-do/add-to-do.component';
-import { LocalStorageService } from './services/local-storage.service';
 import { Store } from '@ngrx/store';
 import { InitialStore } from './interfaces/initialStore';
 import {
-  addTodosFromLS,
   getAllDoneTodos,
   getAllUndoneTodos,
 } from './store/todos.actions';
@@ -34,16 +32,9 @@ import {
 })
 export class AppComponent implements OnInit {
   constructor(
-    private localstorageServices: LocalStorageService,
     private store: Store<{ todos: InitialStore }>
   ) {}
   async ngOnInit() {
-    const todosLS = await this.localstorageServices.getItemFromLS();
-    const donetodosLS =
-      await this.localstorageServices.getFavoriteItemsFromLS();
-    this.store.dispatch(
-      addTodosFromLS({ UndoneTodos: todosLS, DoneTodos: donetodosLS })
-    );
     this.store.dispatch(getAllUndoneTodos());
     this.store.dispatch(getAllDoneTodos());
   }
