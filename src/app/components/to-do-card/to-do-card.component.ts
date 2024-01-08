@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { TodoServiceService } from 'app/services/todo-service.service';
 import { Store } from '@ngrx/store';
 import {
   addDoneTodo,
